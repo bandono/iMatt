@@ -1,0 +1,12 @@
+iMatt
+=====
+
+For long, I've started to use [Prologue](http://wordpress.org/extend/themes/prologue) WordPress theme,
+released by [Automattic](http://automattic.com/), for posting short messages a.k.a microblogging .
+
+To change it looks, I combine it with [iBlog](http://wordpress.org/extend/themes/iblog).
+
+I also wrote plugins using WordPress to post to Twitter and/or Facebook. This plugins need to use this
+theme; a workaround to make development shorter as I need to put check buttons to choose where a post
+should be pushed to (Twitter and/or Facebook). 
+
