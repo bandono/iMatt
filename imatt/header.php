@@ -23,7 +23,7 @@
 <div id="page" class="fix" style="">
   <div id="wrapper" class="fix" >
     <div id="header" class="fix">
-      		<h1 id="blogtitle"><a href="<?php bloginfo('name'); ?>"><span class="sheen"></span><img src="<?php echo get_bloginfo('template_directory') . '/images/bookit_bg_v2.png';?>" alt ="<?php bloginfo('name'); ?>" /></a></h1>
+      		<h1 id="blogtitle"><a href="<?php bloginfo('url'); ?>"><span class="sheen"></span><img src="<?php echo get_bloginfo('template_directory') . '/images/bookit_bg_v2.png';?>" alt ="<?php bloginfo('name'); ?>" /></a></h1>
       		<div id="blogdescription"><?php bloginfo('description'); ?></div>
 		<div class="icons">
 			<!--<div class="nav-icon">
