@@ -31,6 +31,9 @@
 					</div>					
 						<div class="textcontent">
 							<?php the_content( __( '(More ...)' ) ); ?>
+								<?php if ( get_post_meta($post->ID, 'image', true) ) : ?>
+									<?php echo get_post_meta($post->ID, 'image', true) ?>
+								<?php endif; ?>							
 						</div> <!-- // postcontent -->
 											
 				</div>

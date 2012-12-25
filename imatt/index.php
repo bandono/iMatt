@@ -15,33 +15,66 @@ if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST
 	$tags			= $_POST['tags'];
 	$facebook		= $_POST['facebook'];
 	$twitter		= $_POST['twitter'];
-	
-	if( $facebook == 'yes' && $twitter == 'yes' ) {
-		$category	= array('49','50');
-	}
-	elseif( $twitter == 'yes') {
-		$category	= array('50');
-	}
-	elseif( $facebook == 'yes') {
-		$category	= array('49');
-	}
-	
+	$meta_image		= $_POST['image'];
 
+	if(!empty($meta_image))
+	{
+		if( $facebook == 'yes' && $twitter == 'yes' ) {
+				$category	= array('50','51','707');
+			}
+		elseif( $twitter == 'yes') {
+			$category	= array('51','707');
+		}
+		elseif( $facebook == 'yes') {
+			$category	= array('50','707');
+		}
+		else
+			$category	= array('707');
+	}
+	else
+	{
+		if( $facebook == 'yes' && $twitter == 'yes' ) {
+				$category	= array('50','51');
+			}
+		elseif( $twitter == 'yes') {
+			$category	= array('51');
+		}
+		elseif( $facebook == 'yes') {
+			$category	= array('50');
+		}	
+	}
+	
 	$char_limit		= 40;
 	$post_title		= strip_tags( $post_content );
+
 	if( strlen( $post_title ) > $char_limit ) {
 		$post_title = substr( $post_title, 0, $char_limit ) . ' ... ';
 	}
-
-	$post_id = wp_insert_post( array(
+	
+	if(!empty($meta_image))
+	{
+		$post_id = wp_insert_post( array(
+		'post_author'	=> $user_id,
+		'post_title'	=> $post_title,
+		'post_content'	=> $post_content,
+		'tags_input'	=> $tags,
+		'post_status'	=> 'private',
+		'post_category' => $category
+		) );
+		update_post_meta($post_id, 'image', $meta_image);
+		wp_publish_post( $post_id );
+	}
+	else
+	{
+		$post_id = wp_insert_post( array(
 		'post_author'	=> $user_id,
 		'post_title'	=> $post_title,
 		'post_content'	=> $post_content,
 		'tags_input'	=> $tags,
 		'post_status'	=> 'publish',
-		'post_category'	=> $category
-	) );
-
+		'post_category' => $category
+		) );
+	}
 	wp_redirect( get_bloginfo( 'url' ) . '/' );
 	exit;
 }
@@ -64,7 +97,7 @@ if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST
 	<div id="content">
 
 		<?php if( have_posts( ) ) : ?>
-			<?php while( have_posts( ) ) : the_post( ) ?>
+			<?php while( have_posts( ) ) : the_post( ) ?>   <!-- the Wordpress Loop !-->
 				<div class="postwrap fix">	
 					<div <?php post_class() ?> id="post-<?php the_ID(); ?>">		
 						<div class="copy fix">		
@@ -83,14 +116,17 @@ if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST
 						</div>
 						<div class="textcontent">
 							<?php the_content( __( '(More ...)' ) ); ?>
+								<?php if ( get_post_meta($post->ID, 'image', true) ) : ?>
+									<?php echo get_post_meta($post->ID, 'image', true) ?>
+								<?php endif; ?>							
 						</div> <!-- // postcontent -->
 					</div>
 					<div class="hl"></div>
 					<div class="post-footer">
 						<div class="right">
 								<?php if ( in_category('1') ) : ?><img alt='l_ico' src='<?php echo get_bloginfo('template_directory') . '/images/lakmus_icon.gif';?>' /><?php endif; ?>							
-								<?php if ( in_category('3') ) : ?><img alt='fb_ico' src='<?php echo get_bloginfo('template_directory') . '/images/facebook_icon.gif';?>' /><?php endif; ?>
-								<?php if ( in_category('4') ) : ?><img alt='tw_ico' src='<?php echo get_bloginfo('template_directory') . '/images//twitter_icon.gif';?>' /><?php endif; ?>							
+								<?php if ( in_category('50') ) : ?><img alt='fb_ico' src='<?php echo get_bloginfo('template_directory') . '/images/facebook_icon.gif';?>' /><?php endif; ?>
+								<?php if ( in_category('51') ) : ?><img alt='tw_ico' src='<?php echo get_bloginfo('template_directory') . '/images//twitter_icon.gif';?>' /><?php endif; ?>							
 						</div>
 					</div>
 				</div><!-- End postwrap -->
