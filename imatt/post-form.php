@@ -20,7 +20,9 @@ $first_name		= attribute_escape( $user->first_name );
 					<div id="count">0</div>
 				</div>
 				<textarea name="posttext" id="posttext" rows="3" cols="60"></textarea>
-			
+
+				<label for="tags">Image</label>
+				<input type="text" name="image" id="image" autocomplete="off" />			
 				<label for="tags">Tag it</label>
 				<input type="text" name="tags" id="tags" autocomplete="off" />
 				<input type="checkbox" name="facebook" value="yes" />
