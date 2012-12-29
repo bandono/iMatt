@@ -6,3 +6,10 @@ iMatt Theme - Change Log
 - The embed code is stored as meta of post with key name 'image'
 - This meta is called before every post rendering in `index.php` and `single.php`
 - Change header.php to have blog name instead of URL
+
+2.0.0 - 30 Dec 2012
+- Add Pinterest-like layout for gallery of images (posts with images are already under the same category)
+- The layout uses jQuery Masonry, responsive to browser width
+- Modify style.css to have clone for div used by jQuery Masonry
+- Image shown is still not proportional when using Safari
+- jQuery Masonry library uses is v2.1.06 (MIT license)
