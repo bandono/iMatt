@@ -3,9 +3,9 @@ Theme Name: iMatt
 
 Theme URI: http://lakm.us/logit
 
-Description:  iMatt is a free WordPress theme simplified from iBlog <a href="http://www.pagelines.com">PageLines</a> CMS framework to mimic Tumblr like feel.
+Description:  iMatt is a free WordPress theme for microblogging, modified from <a href="http://theme.wordpress.com/retired/prologue/">Prologue</a>, and simplified from iBlog <a href="http://www.pagelines.com">PageLines</a> CMS framework to mimic Tumblr like feel. It also has Pinterest-like auto layout of posts in multi-column according to browser width when viewing category. The later is done using jQuery Masonry with the purpose of displaying posts with embedded images to them. The Masonry is simplified from <a href="http://shakenandstirredweb.com/themes/">Shaken Grid</a> theme.
 
-Version: 1.1
+Version: 2.0.0
 
 Author: Arif Kusbandono
 
@@ -62,7 +62,7 @@ iMatt is licensed under the terms of GPL.
 a, #blogtitle a:hover, .postdata a:hover,h2.posttitle a:hover, .tags a:hover, .commentlist cite, .commentlist cite a, #morefoot a:hover, #sidebar ul li ul li a, #wp-calendar caption, #subnav .current_page_item a, #subnav .current_page_ancestor a,	#subnav li a:hover,	#subnav li.current-cat a, #sidebar #grandchildnav .current_page_item a, 	#feature-footer .twitter a {color:#0088CC;}
 
 /* @ rounded corners in mozilla and apple browsers */
-	#footer .content, .page-nav, .fboxes, .hentry, .postwrap, #highlight, .widget, #sidebar #accordion, #content .wp-pagenavi, #content .wp-pagenavi a, #content .wp-pagenavi .current, #featurenav a,#featurenav span.playpause, #featurenav.thumb_nav a span{
+	#footer .content, .page-nav, .fboxes, .hentry, .postwrap, .shakenpostwrap, #highlight, .widget, #sidebar #accordion, #content .wp-pagenavi, #content .wp-pagenavi a, #content .wp-pagenavi .current, #featurenav a,#featurenav span.playpause, #featurenav.thumb_nav a span{
 		-moz-border-radius: 5px;
 		-khtml-border-radius: 5px;
 		-webkit-border-radius: 5px;
@@ -122,6 +122,10 @@ a, #blogtitle a:hover, .postdata a:hover,h2.posttitle a:hover, .tags a:hover, .c
 	#maincontent {
 		float: left;
 		margin-left: 10px;
+	}
+
+	#shakenmaincontent {
+		margin-left: 100px;
 	}
 	
 	#sidebar{ 
@@ -427,6 +431,22 @@ color: #555;
 	border: 1px solid #CCC;
 	max-width: 390px;
 	width: expression(this.width > 390 ? 390: true);
+}
+
+.shakenpostwrap{
+	border-bottom: 1px solid #bbb;
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #e4e4e4;
+	width: 250px;
+	padding:0;
+}
+
+.shakenpostwrap img{
+	margin: 6px;
+	border: 1px solid #CCC;
+    width: 94%;
+    height:94%;
 }
 
 #respond {
