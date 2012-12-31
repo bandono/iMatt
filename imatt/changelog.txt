@@ -17,3 +17,4 @@ iMatt Theme - Change Log
 2.0.1 - 31 Dec 2012
 - Remove percentage width-height and use .js for image resizing instead
 - The masonry now loads with older container size, but responsively load with newer size after change browser window size
+- This fix image that grows in height unexpectedly
