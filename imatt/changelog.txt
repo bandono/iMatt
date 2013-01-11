@@ -21,3 +21,8 @@ iMatt Theme - Change Log
 
 2.1.0 - 31 Dec 2012
 - Major changes of resizing image using php instead of javascript
+
+2.1.1 - 11 Jan 2013
+- Minor changes of applying previous-next style to pagination in footer.php
+-- footer.php is called by index.php, author.php, tag.php, page.php, single.php
+-- however, author_post_link is commented out so no effect and for single there is a condition that the navigation is not on single page
