@@ -3,8 +3,7 @@
 </div><!--/wrapper -->
 
 <!-- Load the masonry library and script -->
-<script src="<?php echo get_template_directory_uri(); ?>/js/plugins.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
+
 
 
 <div id="container" class="fix">
@@ -79,5 +78,40 @@
 <?php endif; ?>
 
 </div><!--/page -->
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/infinitescroll.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/plugins.js"></script>
+<script type="text/javascript">
+var $container = $('#sort');
+
+$(window).load(function(){
+               $container.masonry({
+                                  columnWidth: 280,
+                                  animate: true,
+                                  itemSelector: '.shakenpostwrap'
+                                  },
+                                  function() { $(this).css({
+                                                           margin: '10px'
+                                                           });
+                                  }).masonry('reload');
+               });
+
+
+$container.infinitescroll({
+                          navSelector  : "div.page-nav",
+                          // selector for the paged navigation (it will be hidden)
+                          nextSelector : "div.page-nav span.previous-entries a:first",
+                          // selector for the NEXT link (to page 2)
+                          itemSelector : "#sort",
+                          // infinite scroll options...
+                          debug        : true
+                          },
+                           // trigger Masonry as a callback
+                          function( newElements ) {
+                                var $newElems = $( newElements );
+                                $container.masonry( 'appended', $newElems );
+                          });
+</script>
+
 </body>
 </html>
