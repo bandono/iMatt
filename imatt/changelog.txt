@@ -26,3 +26,10 @@ iMatt Theme - Change Log
 - Minor changes of applying previous-next style to pagination in footer.php
 -- footer.php is called by index.php, author.php, tag.php, page.php, single.php
 -- however, author_post_link is commented out so no effect and for single there is a condition that the navigation is not on single page
+
+3.0 - 13 Jan 2013
+- Add transition for shakenpostwrap div used in category.php (which is used for galery) to make masonry layout appears slower like boxes falling down
+- incorporate infinite scroll to category (again the galery)
+- when I speak of galery it is a page link to category using "Page Links To" plugins v2.7.1 by Mark Jaquith and I directed it to posts with images (pictures)t
+
+
